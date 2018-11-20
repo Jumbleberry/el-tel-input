@@ -20,13 +20,16 @@ export default {
   props: {
     value: {
       type: String
+    },
+    preferredCountries: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     const parsedPhoneNumber = parsePhoneNumber(this.value);
     return {
-      allCountries,
-      filteredCountries: allCountries,
+      countryFilter: '',
       countryCallingCode: parsedPhoneNumber.countryCallingCode,
       country: parsedPhoneNumber.country,
       nationalNumber: parsedPhoneNumber.nationalNumber
@@ -36,13 +39,25 @@ export default {
     ElFlaggedLabel
   },
   computed: {
+    sortedCountries() {
+      let normalizePreferredCountries = this.preferredCountries.map(c => c.toUpperCase());
+      const preferredCountries = normalizePreferredCountries
+        .map(country => allCountries.find(c => c.iso2 === country.toUpperCase()))
+        .filter(Boolean)
+        .map(country => ({ ...country, preferred: true }));
+
+      return [...preferredCountries, ...allCountries.filter(c => !normalizePreferredCountries.includes(c.iso2))];
+    },
+    filteredCountries() {
+      return this.sortedCountries.filter(c => c.name.toLowerCase().includes(this.countryFilter.toLowerCase()));
+    },
     selectedCountry() {
-      return this.allCountries.find(c => c.iso2 === this.country);
+      return this.sortedCountries.find(c => c.iso2 === this.country);
     }
   },
   methods: {
     handleFilterCountries(search) {
-      this.filteredCountries = this.allCountries.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
+      this.countryFilter = search;
     },
     handleNationalNumberInput(value) {
       this.nationalNumber = value;

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-tel-input :value="telNumber.number" @input="handleElTelInput"></el-tel-input>
+    <el-tel-input :value="telNumber.number" :preferred-countries="['CA','US','CN']" @input="handleElTelInput"></el-tel-input>
   </div>
 </template>
 
