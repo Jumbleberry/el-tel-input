@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <el-tel-input :value="telNumber.number" :preferred-countries="['CA','US','CN']" @input="handleElTelInput"></el-tel-input>
+    <code>
+      {{ this.telNumber }}
+    </code>
   </div>
 </template>
 
@@ -11,11 +14,11 @@ export default {
   data() {
     return {
       telNumber: {
-        country: 'CL',
-        countryCallingCode: '56',
-        nationalNumber: '996504804',
-        number: '+56996504804',
-        isValid: true
+        country: '',
+        countryCallingCode: '',
+        nationalNumber: '',
+        number: '',
+        isValid: false
       }
     };
   },

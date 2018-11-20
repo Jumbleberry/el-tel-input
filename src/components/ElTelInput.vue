@@ -15,6 +15,20 @@ import allCountries from '@/assets/data/all-countries';
 import ElFlaggedLabel from '@/components/ElFlaggedLabel';
 import { parsePhoneNumber } from 'libphonenumber-js';
 
+const getParsedPhoneNumber = function(number, country) {
+  try {
+    return parsePhoneNumber(number, country);
+  } catch (e) {
+    return {
+      country: '',
+      countryCallingCode: '',
+      nationalNumber: '',
+      number: number,
+      isValid: false
+    };
+  }
+};
+
 export default {
   name: 'ElTelInput',
   props: {
@@ -27,7 +41,7 @@ export default {
     }
   },
   data() {
-    const parsedPhoneNumber = parsePhoneNumber(this.value);
+    const parsedPhoneNumber = getParsedPhoneNumber(this.value, '');
     return {
       countryFilter: '',
       countryCallingCode: parsedPhoneNumber.countryCallingCode,
@@ -71,17 +85,19 @@ export default {
       let telInput = {
         countryCallingCode: '',
         country: '',
-        nationalNumber: '',
+        nationalNumber: this.nationalNumber,
         number: '',
         isValid: false
       };
-      if (this.selectedCountry && this.nationalNumber && this.nationalNumber.length > 5) {
-        const parsedPhoneNumber = parsePhoneNumber(this.nationalNumber, this.selectedCountry.iso2);
-        telInput.country = parsedPhoneNumber.country;
-        telInput.countryCallingCode = parsedPhoneNumber.countryCallingCode;
-        telInput.nationalNumber = parsedPhoneNumber.nationalNumber;
-        telInput.number = parsedPhoneNumber.number;
-        telInput.isValid = parsedPhoneNumber.isValid();
+      if (this.selectedCountry) {
+        telInput.country = this.selectedCountry.iso2;
+        telInput.countryCallingCode = this.selectedCountry.dialCode;
+        if (this.nationalNumber && this.nationalNumber.length > 5) {
+          const parsedPhoneNumber = getParsedPhoneNumber(this.nationalNumber, this.selectedCountry.iso2);
+          telInput.nationalNumber = parsedPhoneNumber.nationalNumber;
+          telInput.number = parsedPhoneNumber.number;
+          telInput.isValid = parsedPhoneNumber.isValid();
+        }
       }
       this.$emit('input', telInput);
     }
