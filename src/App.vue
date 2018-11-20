@@ -1,26 +1,42 @@
 <template>
   <div id="app">
-    <vue-tel-input></vue-tel-input>
+    <el-tel-input :value="telNumber.number" @input="handleElTelInput"></el-tel-input>
   </div>
 </template>
 
 <script>
-import VueTelInput from '@/components/ElTelInput';
+import ElTelInput from '@/components/ElTelInput';
 export default {
-  name: 'ElTelInput',
+  name: 'ElTelInputDemo',
+  data() {
+    return {
+      telNumber: {
+        country: 'CL',
+        countryCallingCode: '56',
+        nationalNumber: '996504804',
+        number: '+56996504804',
+        isValid: true
+      }
+    };
+  },
   components: {
-    VueTelInput
+    ElTelInput
+  },
+  methods: {
+    handleElTelInput(value) {
+      this.telNumber = value;
+    }
   }
 };
 </script>
-
 <style lang="scss">
-#app {
+body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  width: 70vw;
+  margin: 60px auto 0 auto;
 }
 </style>

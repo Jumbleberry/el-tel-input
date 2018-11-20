@@ -20,11 +20,14 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .el-flagged-label {
   display: flex;
   .el-flagged-label__icon {
     margin: 4px 0;
+  }
+  .el-flagged-label__name {
+    padding-left: 5px;
   }
 }
 </style>
