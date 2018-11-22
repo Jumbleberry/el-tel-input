@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <el-tel-input :value="telNumber.number" :preferred-countries="['CA','US','CN']" @input="handleElTelInput"></el-tel-input>
+    <el-tel-input v-model="telNumber" @input-details="handleElTelInputDetails" default-country="CA" :preferred-countries="['CA','US','CN']"></el-tel-input>
     <code>
-      {{ this.telNumber }}
+      {{ this.telNumberDetails }}
     </code>
   </div>
 </template>
@@ -13,7 +13,8 @@ export default {
   name: 'ElTelInputDemo',
   data() {
     return {
-      telNumber: {
+      telNumber: '+56996504804',
+      telNumberDetails: {
         country: '',
         countryCallingCode: '',
         nationalNumber: '',
@@ -26,8 +27,8 @@ export default {
     ElTelInput
   },
   methods: {
-    handleElTelInput(value) {
-      this.telNumber = value;
+    handleElTelInputDetails(value) {
+      this.telNumberDetails = value;
     }
   }
 };

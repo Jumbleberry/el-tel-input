@@ -23,6 +23,8 @@ export default {
 <style lang="scss">
 .el-flagged-label {
   display: flex;
+  align-items: center;
+  height: 100%;
   .el-flagged-label__icon {
     margin: 4px 0;
   }

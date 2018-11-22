@@ -38,6 +38,10 @@ export default {
     preferredCountries: {
       type: Array,
       default: () => []
+    },
+    defaultCountry: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -45,7 +49,7 @@ export default {
     return {
       countryFilter: '',
       countryCallingCode: parsedPhoneNumber.countryCallingCode,
-      country: parsedPhoneNumber.country,
+      country: parsedPhoneNumber.country || this.defaultCountry,
       nationalNumber: parsedPhoneNumber.nationalNumber
     };
   },
@@ -99,7 +103,8 @@ export default {
           telInput.isValid = parsedPhoneNumber.isValid();
         }
       }
-      this.$emit('input', telInput);
+      this.$emit('input', telInput.number);
+      this.$emit('input-details', telInput);
     }
   }
 };
