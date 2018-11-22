@@ -78,6 +78,38 @@ describe('Component v-model test', () => {
   });
 });
 
+describe('Component country filtering', () => {
+  const countryFilter = 'canada';
+  const country = 'CA';
+
+  const wrapper = shallowMount(ElTelInput, {
+    localVue,
+    propsData: {
+      value: ''
+    }
+  });
+
+  wrapper.setData({
+    countryFilter
+  });
+
+  it('Should filter the countries when using the filter', () => {
+    const filteredCountries = countryList.filter(c => c.name.toLowerCase().includes(countryFilter));
+    expect(wrapper.findAll('eloption-stub').length).to.equal(filteredCountries.length);
+    expect(
+      wrapper
+        .findAll('eloption-stub')
+        .at(0)
+        .attributes('value')
+    ).to.equal(filteredCountries[0].iso2);
+  });
+
+  it('Should clear the filter when a country is selected', () => {
+    wrapper.vm.handleCountryCodeInput(country);
+    expect(wrapper.vm.countryFilter).to.be.empty;
+  });
+});
+
 describe('Component optional props', () => {
   const defaultCountry = 'CA';
   const preferredCountries = ['CA', 'CL'];

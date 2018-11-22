@@ -83,6 +83,7 @@ export default {
     },
     handleCountryCodeInput(value) {
       this.country = value;
+      this.countryFilter = '';
       this.handleTelNumberChange();
     },
     handleTelNumberChange() {
