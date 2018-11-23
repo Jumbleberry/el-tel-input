@@ -2,6 +2,7 @@
   <div class="el-flagged-label">
     <span class="el-flagged-label__icon" :class="[`el-flagged-label__icon--${country.iso2.toLowerCase()}`]"></span>
     <span v-if="showName" class="el-flagged-label__name">{{country.name}}</span>
+    <span v-if="showName" class="country-code">(+{{country.dialCode}})</span>
   </div>
 </template>
 <script>
@@ -29,7 +30,10 @@ export default {
     margin: 4px 0;
   }
   .el-flagged-label__name {
-    padding-left: 5px;
+    padding-left: 8px;
+  }
+  .country-code {
+    padding-left: 6px;
   }
 }
 </style>
