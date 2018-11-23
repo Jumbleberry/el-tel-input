@@ -3,7 +3,7 @@
     <el-input :placeholder="placeholder" :value="nationalNumber" @input="handleNationalNumberInput" class="input-with-select">
       <el-select :value="country" @input="handleCountryCodeInput" filterable :filter-method="handleFilterCountries" slot="prepend" popper-class="el-tel-input__dropdown" placeholder="Country">
         <el-flagged-label slot="prefix" v-if="selectedCountry" :country="selectedCountry" :show-name="false"></el-flagged-label>
-        <el-option v-for="country in filteredCountries" :key="country.iso2" :value="country.iso2" :label="`+${country.dialCode}`">
+        <el-option v-for="country in filteredCountries" :key="country.iso2" :value="country.iso2" :label="`+${country.dialCode}`" :default-first-option="true">
           <el-flagged-label :country="country"></el-flagged-label>
         </el-option>
       </el-select>
