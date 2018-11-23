@@ -13,7 +13,7 @@ export default {
   name: 'ElTelInputDemo',
   data() {
     return {
-      telNumber: '+56996504804',
+      telNumber: '',
       telNumberDetails: {
         country: '',
         countryCallingCode: '',

@@ -11,6 +11,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 import allCountries from '@/assets/data/all-countries';
 import ElFlaggedLabel from '@/components/ElFlaggedLabel';
 import { parsePhoneNumber } from 'libphonenumber-js';
@@ -59,6 +60,11 @@ export default {
   },
   components: {
     ElFlaggedLabel
+  },
+  async created() {
+    const response = await axios.get('https://ipinfo.io/json').catch(() => {}) || { data: { country: "US" }};
+    if (response && response.data && response.data.country)
+      this.handleCountryCodeInput(response.data.country)
   },
   computed: {
     sortedCountries() {
