@@ -48,7 +48,10 @@ export default {
       type: String,
       default: 'Phone Number'
     },
-    popperClass
+    popperClass: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     const parsedPhoneNumber = getParsedPhoneNumber(this.value, '');

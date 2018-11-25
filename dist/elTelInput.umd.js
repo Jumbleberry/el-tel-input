@@ -3516,12 +3516,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0f87e5ee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ElTelInput.vue?vue&type=template&id=7fb2910a&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0f87e5ee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ElTelInput.vue?vue&type=template&id=ca531484&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"el-tel-input"},[_c('el-input',{staticClass:"input-with-select",attrs:{"placeholder":_vm.placeholder,"value":_vm.nationalNumber},on:{"input":_vm.handleNationalNumberInput}},[_c('el-select',{attrs:{"slot":"prepend","value":_vm.country,"filterable":"","filter-method":_vm.handleFilterCountries,"popper-class":_vm.popperClass + ' el-tel-input__dropdown',"placeholder":"Country"},on:{"input":_vm.handleCountryCodeInput},slot:"prepend"},[(_vm.selectedCountry)?_c('el-flagged-label',{attrs:{"slot":"prefix","country":_vm.selectedCountry,"show-name":false},slot:"prefix"}):_vm._e(),_vm._l((_vm.filteredCountries),function(country){return _c('el-option',{key:country.iso2,attrs:{"value":country.iso2,"label":("+" + (country.dialCode)),"default-first-option":true}},[_c('el-flagged-label',{attrs:{"country":country}})],1)})],2)],1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/ElTelInput.vue?vue&type=template&id=7fb2910a&
+// CONCATENATED MODULE: ./src/components/ElTelInput.vue?vue&type=template&id=ca531484&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
@@ -8823,7 +8823,10 @@ var ElTelInputvue_type_script_lang_js_getParsedPhoneNumber = function getParsedP
       type: String,
       default: 'Phone Number'
     },
-    popperClass: popperClass
+    popperClass: {
+      type: String,
+      default: ''
+    }
   },
   data: function data() {
     var parsedPhoneNumber = ElTelInputvue_type_script_lang_js_getParsedPhoneNumber(this.value, '');
