@@ -2615,13 +2615,6 @@ module.exports = function transformData(data, headers, fns) {
 
 /***/ }),
 
-/***/ "c52b":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "c532":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3516,12 +3509,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0f87e5ee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ElTelInput.vue?vue&type=template&id=ca531484&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0f87e5ee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ElTelInput.vue?vue&type=template&id=2c29972c&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"el-tel-input"},[_c('el-input',{staticClass:"input-with-select",attrs:{"placeholder":_vm.placeholder,"value":_vm.nationalNumber},on:{"input":_vm.handleNationalNumberInput}},[_c('el-select',{attrs:{"slot":"prepend","value":_vm.country,"filterable":"","filter-method":_vm.handleFilterCountries,"popper-class":_vm.popperClass + ' el-tel-input__dropdown',"placeholder":"Country"},on:{"input":_vm.handleCountryCodeInput},slot:"prepend"},[(_vm.selectedCountry)?_c('el-flagged-label',{attrs:{"slot":"prefix","country":_vm.selectedCountry,"show-name":false},slot:"prefix"}):_vm._e(),_vm._l((_vm.filteredCountries),function(country){return _c('el-option',{key:country.iso2,attrs:{"value":country.iso2,"label":("+" + (country.dialCode)),"default-first-option":true}},[_c('el-flagged-label',{attrs:{"country":country}})],1)})],2)],1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/ElTelInput.vue?vue&type=template&id=ca531484&
+// CONCATENATED MODULE: ./src/components/ElTelInput.vue?vue&type=template&id=2c29972c&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
@@ -3663,15 +3656,12 @@ var allCountries = [['Afghanistan (‫افغانستان‬‎)', 'af', '93'], [
     areaCodes: country[4] || null
   };
 }));
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0f87e5ee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ElFlaggedLabel.vue?vue&type=template&id=700625c2&
-var ElFlaggedLabelvue_type_template_id_700625c2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"el-flagged-label"},[_c('span',{staticClass:"el-flagged-label__icon",class:[("el-flagged-label__icon--" + (_vm.country.iso2.toLowerCase()))]}),(_vm.showName)?_c('span',{staticClass:"el-flagged-label__name"},[_vm._v(_vm._s(_vm.country.name))]):_vm._e(),(_vm.showName)?_c('span',{staticClass:"country-code"},[_vm._v("(+"+_vm._s(_vm.country.dialCode)+")")]):_vm._e()])}
-var ElFlaggedLabelvue_type_template_id_700625c2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0f87e5ee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ElFlaggedLabel.vue?vue&type=template&id=6e67a2c8&
+var ElFlaggedLabelvue_type_template_id_6e67a2c8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"el-flagged-label"},[_c('span',{staticClass:"el-flagged-label__icon",class:[("el-flagged-label__icon--" + (_vm.country.iso2.toLowerCase()))]}),(_vm.showName)?_c('span',{staticClass:"el-flagged-label__name"},[_vm._v(_vm._s(_vm.country.name))]):_vm._e(),(_vm.showName)?_c('span',{staticClass:"country-code"},[_vm._v("(+"+_vm._s(_vm.country.dialCode)+")")]):_vm._e()])}
+var ElFlaggedLabelvue_type_template_id_6e67a2c8_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/ElFlaggedLabel.vue?vue&type=template&id=700625c2&
-
-// EXTERNAL MODULE: ./src/assets/css/flags-sprite.css
-var flags_sprite = __webpack_require__("c52b");
+// CONCATENATED MODULE: ./src/components/ElFlaggedLabel.vue?vue&type=template&id=6e67a2c8&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ElFlaggedLabel.vue?vue&type=script&lang=js&
 //
@@ -3681,7 +3671,6 @@ var flags_sprite = __webpack_require__("c52b");
 //
 //
 //
-
 /* harmony default export */ var ElFlaggedLabelvue_type_script_lang_js_ = ({
   name: 'ElFlaggedLabel',
   props: {
@@ -3806,8 +3795,8 @@ function normalizeComponent (
 
 var component = normalizeComponent(
   components_ElFlaggedLabelvue_type_script_lang_js_,
-  ElFlaggedLabelvue_type_template_id_700625c2_render,
-  ElFlaggedLabelvue_type_template_id_700625c2_staticRenderFns,
+  ElFlaggedLabelvue_type_template_id_6e67a2c8_render,
+  ElFlaggedLabelvue_type_template_id_6e67a2c8_staticRenderFns,
   false,
   null,
   null,
@@ -8862,13 +8851,16 @@ var ElTelInputvue_type_script_lang_js_getParsedPhoneNumber = function getParsedP
 
               _context.t0 = {
                 data: {
-                  country: "US"
+                  country: 'US'
                 }
               };
 
             case 5:
               response = _context.t0;
-              if (response && response.data && response.data.country) this.handleCountryCodeInput(response.data.country);
+
+              if (response && response.data && response.data.country) {
+                this.handleCountryCodeInput(response.data.country);
+              }
 
             case 7:
             case "end":

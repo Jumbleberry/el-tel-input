@@ -66,9 +66,10 @@ export default {
     ElFlaggedLabel
   },
   async created() {
-    const response = await axios.get('https://ipinfo.io/json').catch(() => {}) || { data: { country: "US" }};
-    if (response && response.data && response.data.country)
-      this.handleCountryCodeInput(response.data.country)
+    const response = (await axios.get('https://ipinfo.io/json').catch(() => {})) || { data: { country: 'US' } };
+    if (response && response.data && response.data.country) {
+      this.handleCountryCodeInput(response.data.country);
+    }
   },
   computed: {
     sortedCountries() {
