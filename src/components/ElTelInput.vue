@@ -1,12 +1,49 @@
 <template>
   <div class="el-tel-input">
-    <el-input :placeholder="placeholder" :value="nationalNumber" @input="handleNationalNumberInput" class="input-with-select">
-      <el-select :value="country" @input="handleCountryCodeInput" filterable :filter-method="handleFilterCountries" slot="prepend" :popper-class="popperClass + ' el-tel-input__dropdown'" placeholder="Country">
-        <el-flagged-label slot="prefix" v-if="selectedCountry" :country="selectedCountry" :show-name="false"></el-flagged-label>
-        <el-option v-for="country in filteredCountries" :key="country.iso2" :value="country.iso2" :label="`+${country.dialCode}`" :default-first-option="true">
-          <el-flagged-label :country="country"></el-flagged-label>
-        </el-option>
-      </el-select>
+    <el-input
+      ref="input"
+      class="input-with-select"
+      v-bind="$attrs"
+      v-on="$listeners"
+      :size="size"
+      :placeholder="placeholder"
+      :value="nationalNumber"
+      @input="handleNationalNumberInput">
+      <template #prepend>
+        <slot name="prepend">
+          <el-select
+            slot="prepend"
+            filterable
+            placeholder="Country"
+            :value="country"
+            @input="handleCountryCodeInput"
+            :filter-method="handleFilterCountries"
+            :popper-class="popperClass + ' el-tel-input__dropdown'">
+            <el-flagged-label slot="prefix" v-if="selectedCountry" :country="selectedCountry" :show-name="false" />
+            <el-option
+              v-for="country in filteredCountries"
+              :key="country.iso2"
+              :value="country.iso2"
+              :label="`+${country.dialCode}`"
+              :default-first-option="true">
+              <el-flagged-label :country="country" />
+            </el-option>
+          </el-select>
+        </slot>
+      </template>
+
+      <template slot="prefix">
+        <slot name="prefix" />
+      </template>
+
+      <template slot="suffix">
+        <slot name="suffix" />
+      </template>
+
+      <template slot="append">
+        <slot name="append" />
+      </template>
+
     </el-input>
   </div>
 </template>
@@ -86,6 +123,9 @@ export default {
     },
     selectedCountry() {
       return this.sortedCountries.find(c => c.iso2 === this.country);
+    },
+    size() {
+      return this.$attrs.size || 'mini';
     }
   },
   methods: {
