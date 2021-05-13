@@ -60,8 +60,8 @@ const getParsedPhoneNumber = function(number, country) {
     return {
       country: '',
       countryCallingCode: '',
-      nationalNumber: '',
-      number: number,
+      nationalNumber: number,
+      number: '',
       isValid: false
     };
   }
@@ -71,7 +71,7 @@ export default {
   name: 'ElTelInput',
   props: {
     value: {
-      type: String
+      type: Object
     },
     preferredCountries: {
       type: Array,
@@ -91,7 +91,7 @@ export default {
     }
   },
   data() {
-    const parsedPhoneNumber = getParsedPhoneNumber(this.value, '');
+    const parsedPhoneNumber = getParsedPhoneNumber(this.value.nationalNumber, this.value.country);
     return {
       countryFilter: '',
       countryCallingCode: parsedPhoneNumber.countryCallingCode,
@@ -126,6 +126,17 @@ export default {
     },
     size() {
       return this.$attrs.size || 'mini';
+    }
+  },
+  watch: {
+    value: {
+      deep: true,
+      handler(newValue) {
+        const parsedPhoneNumber = getParsedPhoneNumber(newValue.nationalNumber, newValue.country);
+        this.countryCallingCode = parsedPhoneNumber.countryCallingCode || this.countryCallingCode;
+        this.country = parsedPhoneNumber.country || this.defaultCountry || this.country;
+        this.nationalNumber = parsedPhoneNumber.nationalNumber || this.nationalNumber;
+      }
     }
   },
   methods: {
