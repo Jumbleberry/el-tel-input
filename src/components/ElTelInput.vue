@@ -134,7 +134,7 @@ export default {
       handler(newValue) {
         const parsedPhoneNumber = getParsedPhoneNumber(newValue.nationalNumber, newValue.country);
         this.countryCallingCode = parsedPhoneNumber.countryCallingCode || this.countryCallingCode;
-        this.country = parsedPhoneNumber.country || this.defaultCountry || this.country;
+        this.country = parsedPhoneNumber.country || this.country || this.defaultCountry;
         this.nationalNumber = parsedPhoneNumber.nationalNumber || this.nationalNumber;
       }
     }
