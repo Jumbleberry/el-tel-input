@@ -3509,12 +3509,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0f87e5ee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ElTelInput.vue?vue&type=template&id=98317182&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0f87e5ee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ElTelInput.vue?vue&type=template&id=16d72b7c&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"el-tel-input"},[_c('el-input',_vm._g(_vm._b({ref:"input",staticClass:"input-with-select",attrs:{"size":_vm.size,"placeholder":_vm.placeholder,"value":_vm.nationalNumber},on:{"input":_vm.handleNationalNumberInput}},'el-input',_vm.$attrs,false),_vm.$listeners),[[_vm._t("prepend",[_c('el-select',{attrs:{"slot":"prepend","filterable":"","placeholder":"Country","value":_vm.country,"filter-method":_vm.handleFilterCountries,"popper-class":_vm.popperClass + ' el-tel-input__dropdown'},on:{"input":_vm.handleCountryCodeInput},slot:"prepend"},[(_vm.selectedCountry)?_c('el-flagged-label',{attrs:{"slot":"prefix","country":_vm.selectedCountry,"show-name":false},slot:"prefix"}):_vm._e(),_vm._l((_vm.filteredCountries),function(country){return _c('el-option',{key:country.iso2,attrs:{"value":country.iso2,"label":("+" + (country.dialCode)),"default-first-option":true}},[_c('el-flagged-label',{attrs:{"country":country}})],1)})],2)])],_c('template',{slot:"prefix"},[_vm._t("prefix")],2),_c('template',{slot:"suffix"},[_vm._t("suffix")],2),_c('template',{slot:"append"},[_vm._t("append")],2)],2)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/ElTelInput.vue?vue&type=template&id=98317182&
+// CONCATENATED MODULE: ./src/components/ElTelInput.vue?vue&type=template&id=16d72b7c&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
@@ -8852,6 +8852,10 @@ var ElTelInputvue_type_script_lang_js_getParsedPhoneNumber = function getParsedP
     popperClass: {
       type: String,
       default: ''
+    },
+    detectCountryCodeFromIp: {
+      type: Boolean,
+      default: true
     }
   },
   data: function data() {
@@ -8875,14 +8879,19 @@ var ElTelInputvue_type_script_lang_js_getParsedPhoneNumber = function getParsedP
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              if (!this.detectCountryCodeFromIp) {
+                _context.next = 8;
+                break;
+              }
+
+              _context.next = 3;
               return axios_default.a.get('https://ipinfo.io/json').catch(function () {});
 
-            case 2:
+            case 3:
               _context.t0 = _context.sent;
 
               if (_context.t0) {
-                _context.next = 5;
+                _context.next = 6;
                 break;
               }
 
@@ -8892,14 +8901,14 @@ var ElTelInputvue_type_script_lang_js_getParsedPhoneNumber = function getParsedP
                 }
               };
 
-            case 5:
+            case 6:
               response = _context.t0;
 
               if (response && response.data && response.data.country) {
                 this.handleCountryCodeInput(response.data.country);
               }
 
-            case 7:
+            case 8:
             case "end":
               return _context.stop();
           }
