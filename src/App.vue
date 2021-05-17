@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-tel-input v-model="telNumber" @input-details="handleElTelInputDetails" default-country="CA" :preferred-countries="['CA','US','CN']"></el-tel-input>
+    <el-tel-input v-model="telNumber" @input-details="handleElTelInputDetails" default-country="CA" :preferred-countries="['CA','US','CN']" :detect-country-code-from-ip="false"></el-tel-input>
     <code>
       {{ this.telNumberDetails }}
     </code>
